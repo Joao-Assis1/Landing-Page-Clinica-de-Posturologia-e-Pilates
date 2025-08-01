@@ -13,7 +13,7 @@ Acesse a versão publicada:
 
 ## 📷 Captura de Tela
 
-![Screenshot do site](/src/img/Screenshot-Header) <!-- Substitua com o caminho da imagem real -->
+![Screenshot do site](src/img/Screenshot-Header) <!-- Substitua com o caminho da imagem real -->
 
 ---
 
