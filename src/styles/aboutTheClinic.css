@@ -1,0 +1,46 @@
+#aboutTheClinic {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  margin-top: 50px;
+  min-height: 100vh;
+}
+
+#section-text--aboutTheClinic {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-AbouTheClinic {
+  min-width: none;
+}
+
+.image-AbouTheClinic img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 70px;
+  border: 10px solid var(--color-primary-3);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.95) contrast(1.05);
+}
+
+@media screen and (max-width: 1170px) {
+  #aboutTheClinic {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #section-text--aboutTheClinic {
+    text-align: center;
+    align-items: center;
+  }
+
+  .image-AbouTheClinic img {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
