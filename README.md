@@ -7,7 +7,7 @@ Landing page desenvolvida para apresentar os serviços, localização e canais d
 ## 📌 Visite o site
 
 Acesse a versão publicada:
-👉 [https://Joao-Assis1.github.io/Landing-Page-Clinica-de-Posturologia-e-Pilates](https://Joao-Assis1.github.io/clinica-daniely)
+👉 [https://Joao-Assis1.github.io/Landing-Page-Clinica-de-Posturologia-e-Pilates](https://Joao-Assis1.github.io/Landing-Page-Clinica-de-Posturologia-e-Pilates)
 
 ---
 
