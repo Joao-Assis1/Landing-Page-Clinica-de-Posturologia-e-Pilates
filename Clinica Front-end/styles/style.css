@@ -26,8 +26,9 @@
 
 html,
 body {
-  width: 100%;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 html {
@@ -102,4 +103,10 @@ a {
   color: var(--color-neutral-1) ad;
   font-size: 20px;
   max-width: 800px;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    padding: 24px 16px;
+  }
 }

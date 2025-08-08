@@ -1,7 +1,10 @@
 #contact {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
   width: 100%;
+  max-width: 100%;
   padding: 40px 20px;
 }
 
@@ -169,6 +172,7 @@
   .form--contact,
   .info--contact {
     width: 100%;
+    max-width: 100%;
     min-height: auto;
     padding: 25px;
   }
