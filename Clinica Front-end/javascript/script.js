@@ -112,60 +112,71 @@ $(document).ready(function () {
 //   });
 // }
 
-const form = document.querySelector(".form--contact");
-const errorMsg = document.createElement("p");
-errorMsg.style.color = "red";
-form.appendChild(errorMsg);
+document
+  .querySelector(".form--contact")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-form.addEventListener("submit", async function (event) {
-  event.preventDefault(); // evita o envio padrão
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const mensagem = document.getElementById("mensagem").value;
 
-  // Pega os valores e limpa espaços
-  const nome = form.nome.value.trim();
-  const email = form.email.value.trim();
-  const telefone = form.telefone.value.trim();
-  const mensagem = form.mensagem.value.trim();
+    try {
+      const response = await fetch(
+        "https://landing-page-clinica-de-posturologia-e.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ nome, email, telefone, mensagem }),
+        }
+      );
 
-  errorMsg.textContent = ""; // limpa mensagem anterior
-
-  // Validação simples
-  if (!nome || !email || !mensagem) {
-    errorMsg.textContent = "Preencha nome, email e mensagem.";
-    return;
-  }
-
-  // Regex para validar email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    errorMsg.textContent = "Email inválido.";
-    return;
-  }
-
-  // Se quiser, valida telefone aqui (opcional)
-
-  // Monta o objeto para enviar
-  const data = { nome, email, telefone, mensagem };
-
-  try {
-    const response = await fetch("http://localhost:10000/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || "Erro no envio");
+      const data = await response.json();
+      if (response.ok) {
+        alert("Mensagem enviada com sucesso!");
+        e.target.reset();
+      } else {
+        alert(data.error || "Erro ao enviar a mensagem.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro de conexão com o servidor.");
     }
+  });
 
-    const resData = await response.json();
-    alert(resData.message); // mensagem de sucesso
-    form.reset(); // limpa o formulário
-    errorMsg.textContent = "";
-  } catch (err) {
-    errorMsg.textContent = err.message || "Erro ao enviar, tente novamente.";
-    console.error(err);
-  }
-});
+const API_URL = "https://clinica-back-end.onrender.com/api/contact";
+
+document
+  .querySelector(".form--contact")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email, telefone, mensagem }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Mensagem enviada com sucesso!");
+        e.target.reset();
+      } else {
+        alert(data.error || "Erro ao enviar a mensagem.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro de conexão com o servidor.");
+    }
+  });
